@@ -2,7 +2,7 @@
 
 ## 1. Overview & milestones
 
-**Alien Defense!** is an original browser-based shooter. **Alien Defense!** interpolates classical retro arcade games that I used to play with my Dad at Capcom's **Nickel City** in San José, CA. In **Alien Defense!** you fly a small UFO and defend against a human attack: chains of nuclear missiles snaking down the screen.
+**Alien Defense!** is an original browser-based shooter. **Alien Defense!** is inspired by classical retro arcade games that I used to play with my Dad at Capcom's **Nickel City** in San José, CA. In **Alien Defense!** you fly a small UFO and defend against a human attack: chains of nuclear missiles snaking down the screen.
 
 For **Alien Defense!'s** technical stack:
 - The **game engine** (rules and simulation) is written in **Rust** and compiled to **WebAssembly** with wasm-pack. It is a pure, deterministic `step(state, input) -> state` and knows nothing about drawing.
@@ -108,7 +108,7 @@ The same "drawn bigger than its current cell position" idea applies to the other
 - They fly across the upper region, left to right or right to left, and **never enter the player zone**.
 - Each one is **2 cells long**, which makes it easier to hit.
 - For now they are worth bonus points only.
-- They may drop **bombs that fall straight down** from where the crosser is. Obstacles do not block bombs. If the UDO is hit by a bomb, a life is deducted.
+- They may drop **bombs that fall straight down** from where the crosser is. Obstacles do not block bombs. If the UFO is hit by a bomb, a life is deducted.
 
 **Falling enemy (satellite, sometimes a paratrooper)**
 - It drops straight down from the top.
