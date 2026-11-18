@@ -3,6 +3,12 @@ import heroImg from './assets/hero.png'
 import typescriptLogo from './assets/typescript.svg'
 import viteLogo from './assets/vite.svg'
 import { setupCounter } from './counter.ts'
+import init, { add } from 'engine';
+
+const ready = init();
+await ready;
+const sum = add(2,3);
+console.log(sum);
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 <section id="center">
