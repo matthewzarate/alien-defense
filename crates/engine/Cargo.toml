@@ -4,3 +4,17 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+wasm-bindgen = "0.2" # Instead of running cargo add wasm-bindgen inside of
+      # crates/engine/
+# This dependency is the crate that generates the JS <-> Rust glue convrsion
+# for game
+
+
+[lib]
+crate-type = ["cdylib", "rlib"] 
+# "cdylib" builds standalone library that other languages can load
+#....the kind of output wasm-pack converts into a .wasm file
+# "rlib" is the normal Rust library format. rlib is default but cdylib replaces 
+# .... the default. 
+# Without rlib, cargo test doctests and crates/sim simulator can't use
+# ....my engine as a regular Rust crate
