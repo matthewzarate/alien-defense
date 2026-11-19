@@ -1,13 +1,13 @@
-import './style.css'
-import heroImg from './assets/hero.png'
-import typescriptLogo from './assets/typescript.svg'
-import viteLogo from './assets/vite.svg'
-import { setupCounter } from './counter.ts'
+import './style.css';
+import heroImg from './assets/hero.png';
+import typescriptLogo from './assets/typescript.svg';
+import viteLogo from './assets/vite.svg';
+import { setupCounter } from './counter.ts';
 import init, { add } from 'engine';
 
 const ready = init();
 await ready;
-const sum = add(2,3);
+const sum = add(2, 3);
 console.log(sum);
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
@@ -61,6 +61,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
 <div class="ticks"></div>
 <section id="spacer"></section>
-`
+`;
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);
