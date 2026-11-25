@@ -10,5 +10,44 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
+
       - name: Install rustup toolchain
         run: rustup toolchain install
+
+      - name: Install wasm-pack
+        run: cargo install wasm-pack --version 0.15.1 --locked
+
+      - name: Check Rust formatting
+        run: cargo fmt --check
+
+      - name: Lint Rust with Clippy
+        run: cargo clippy --all-targets -- -D warnings
+
+      - name: Run Rust Tests
+        run: cargo test
+
+      - name: Build Rust engine to WebAssembly
+        run: wasm-pack build crates/engine --target web
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+           node-version-file: .nvmrc
+
+      - name: Install npm dependencies
+        run: npm ci
+        working-directory: web
+
+      - name: Check TypeScript formatting
+        run: npm run format:check
+        working-directory: web
+
+      - name: Lint TypeScript w ESlint
+        run: npm run lint
+        working-directory: web
+
+      - name: Build web app
+        run: npm run build
+        working-directory: web
+
+
